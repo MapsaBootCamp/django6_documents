@@ -1,0 +1,1 @@
+# django6_documents

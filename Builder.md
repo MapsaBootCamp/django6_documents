@@ -1,6 +1,4 @@
 <h1>Builder</h1>
-===================
-
 <div dir="rtl">
 <h2>
 مشکل :
@@ -9,7 +7,7 @@
 Builder یک الگوی طرای خلاقانه است که شما اماکن می دهد شیء های پیچیده را مرحله به مرحله بسازید. این الگو به شما اجازه می دهد تا انواع مختلفی از یک شیء را با استفاده از کد ساختاری یکسان تولید کنید
 </p>
 <p>
-![This is an image](https://refactoring.guru/images/patterns/content/builder/builder-en.png)
+<img src="https://refactoring.guru/images/patterns/content/builder/builder-en.png">
 </p>
 <p>
 یک شیء پیچیده را تصور کنید که نیاز به مقداردهی های اولیه فراوان و تو در تو دارد. چنین کدی معمولا در داخل یک سازنده هیولایی با پارامتر های زیاد دفن می شود.
@@ -21,7 +19,7 @@ Builder یک الگوی طرای خلاقانه است که شما اماکن م
 ساده ترین راه حل این است که کلاس اولیه خانه را گسترش دهیم و زیرکلاس های از ان درست کنیم که همه ویژگی هیا مورد نیاز ما را پوشش دهند. که باعث ایجاد تعداد زیادی زیرکلاس ها می شود و ما هر دفعه برای اضافه کردن یک پارامتر جدید باید همه آن ها را تغییر دهیم
 </p>
 <p>
-![This is an image](https://refactoring.guru/images/patterns/diagrams/builder/problem2.png)
+<img src="https://refactoring.guru/images/patterns/diagrams/builder/problem2.png">
 </p>
 <p>
 یک راه حل دیگر این است که به کلاس اصلی متد ها و ویژگی های زیادی اضافه کنیم که همه پارامتر های مورد نیاز ما را داشته باشد. که در این راه اکثر اوقات بیشتر پارامتر های ما بدون استفاده می مانند و کلاس سازنده را بسیار کثیف میکنند.
@@ -33,7 +31,7 @@ Builder یک الگوی طرای خلاقانه است که شما اماکن م
 الگو طراحی سازنده (Builder) پیشنهاد میکند که متد های سازنده شیء را از کلاس اصلی جدا کرده و در اشیاء دیگه که سازنده نامیده میشوند ذخیره کرد.
 </p>
 <p>
-![This is an image](https://refactoring.guru/images/patterns/diagrams/builder/solution1.png)
+<img src="https://refactoring.guru/images/patterns/diagrams/builder/solution1.png">
 </p>
 <p>
 این الگو مراحل ساخت یک شیء را به گام های مختلف دسته بندی می کند و شما برای ساختن یک شیء فقط کافی است تا تعدادی از این گام ها را اجرا کنید. نکته مهم این است که نیاز به اجرا کردن همه گام ها نیست و فقط آن ها که برای ساختن شیء ضروری هستند اجرا می شوند.
@@ -45,7 +43,7 @@ Builder یک الگوی طرای خلاقانه است که شما اماکن م
 ساختار :
 </h2>
 <p>
-![This is an image](https://refactoring.guru/images/patterns/diagrams/builder/structure.png)
+<img src="https://refactoring.guru/images/patterns/diagrams/builder/structure.png">
 </p>
 <h2>
 مزایا و معایب :
@@ -55,7 +53,11 @@ Builder یک الگوی طرای خلاقانه است که شما اماکن م
 </h3>
 <p>
 ۱. می توان یک شیء را گام به گام ساخت. یک گام را به شکل های مختلف یا به طور بازگشتی اجرا کرد.
+</p>
+<p>
 ۲.می توان از یک کد برای ساختن شکل های مختلف یک شیء استفاده کرد.
+</p>
+<p>
 ۳. می توان قسمت ساخت یک شیء را از قسمت منطقی آن جدا کرد.
 </p>
 <h3>
@@ -68,12 +70,14 @@ Builder یک الگوی طرای خلاقانه است که شما اماکن م
 مثال مفهومی در زبان پایتون :
 </h2>
 <code dir="ltr">
-from __future__ import annotations
-from abc import ABC, abstractmethod
-from typing import Any
+
+	from __future__ import annotations
+	from abc import ABC, abstractmethod
+	from typing import Any
 
 
-class Builder(ABC):
+ 	class Builder(ABC):
+
     """
     The Builder interface specifies methods for creating the different parts of
     the Product objects.
@@ -97,7 +101,7 @@ class Builder(ABC):
         pass
 
 
-class ConcreteBuilder1(Builder):
+ 	class ConcreteBuilder1(Builder):
     """
     The Concrete Builder classes follow the Builder interface and provide
     specific implementations of the building steps. Your program may have
@@ -144,7 +148,8 @@ class ConcreteBuilder1(Builder):
         self._product.add("PartC1")
 
 
-class Product1():
+	class Product1():
+	
     """
     It makes sense to use the Builder pattern only when your products are quite
     complex and require extensive configuration.
@@ -164,7 +169,7 @@ class Product1():
         print(f"Product parts: {', '.join(self.parts)}", end="")
 
 
-class Director:
+	class Director:
     """
     The Director is only responsible for executing the building steps in a
     particular sequence. It is helpful when producing products according to a
@@ -202,7 +207,7 @@ class Director:
         self.builder.produce_part_c()
 
 
-if __name__ == "__main__":
+	if __name__ == "__main__":
     """
     The client code creates a builder object, passes it to the director and then
     initiates the construction process. The end result is retrieved from the

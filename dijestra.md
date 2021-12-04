@@ -21,5 +21,4 @@ u در sptSet قرار می‌گیرد.
 
 
 
-
-![This is an image (https://blog.faradars.org/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/07/Dijkstra00.jpg.webp)
+[This is an image(https://blog.faradars.org/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/07/Dijkstra00.jpg.webp)
